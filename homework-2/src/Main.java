@@ -15,14 +15,12 @@ public class Main {
 
 
         System.out.println("Part 2"); // ################################### part 2 ####################################
-        double h;
         double S;
         a = 2;
         b = 8;
         c = 5;
 
-        h = Math.sqrt( c*c - ( (b-a)/2.0 * (b-a)/2 ));
-        S = (b - (b-a)/2.0) * h;
+        S = (b+a)/2.0 * c;
         System.out.println("S: "+S);
         System.out.println("\n\n");
 
