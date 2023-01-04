@@ -1,4 +1,4 @@
-public class Main {
+public class Homework_3 {
     public static void main(String[] args) {
         // ######################  part 1  ########################################
         int x = 45;
@@ -25,6 +25,7 @@ public class Main {
         System.out.println(n-((int) n));
         // 3.2
         System.out.println(n*1000%1000/1000);
+        System.out.println(2-1.0);
 
 
     }

@@ -1,12 +1,6 @@
-// Java program for simple calculator
-
-import java.io.*;
-import java.lang.*;
-import java.lang.Math;
 import java.util.Scanner;
 
-public class Calc {
-
+public class Homework_1 {
     public static void main(String[] args) {
         // stores two numbers
         double num1, num2;
@@ -73,3 +67,4 @@ public class Calc {
                 + " = " + o);
     }
 }
+

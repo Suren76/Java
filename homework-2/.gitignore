@@ -1,9 +1,0 @@
-# files
-*.iml
-
-# directories
-.*
-/out
-
-# exeption
-!.gitignore
