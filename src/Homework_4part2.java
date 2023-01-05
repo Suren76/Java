@@ -1,19 +1,13 @@
 import java.util.Scanner;
 
 
-public class Homework_4 {
+public class Homework_4part2 {
     public static void main(String[] args) {
         System.out.println("Homework_4");
 
         int a, b, c;
 
         Scanner input = new Scanner(System.in);
-
-        a = input.nextInt();
-        b = input.nextInt();
-        c = input.nextInt();
-
-        System.out.println("եռանկյուն : " + ((a + b > c) && (a + c > b) && (b + c > a)));
 
         System.out.println("Input range: 1-12");
         int number = input.nextInt();
