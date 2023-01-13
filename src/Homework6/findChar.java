@@ -10,6 +10,10 @@ public class findChar {
 
         while (array[i] != toFind){
             i++;
+            if (i>=array.length){
+                System.out.println("Out of range");
+                break;
+            }
         }
 
         System.out.println(i);
