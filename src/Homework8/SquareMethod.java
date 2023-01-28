@@ -1,6 +1,6 @@
-package homework8;
+package Homework8;
 
-public class squareMethod {
+public class SquareMethod {
     public static void main(String[] args) {
         int number = square(-2,5);
 

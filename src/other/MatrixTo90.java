@@ -2,7 +2,7 @@ package other;
 
 import java.util.Arrays;
 
-public class matrixTo90 {
+public class MatrixTo90 {
     public static void main(String[] args) {
         int[][][] matrixN = {
                 {
