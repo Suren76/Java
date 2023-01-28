@@ -23,7 +23,7 @@ public class SquareMethod {
         }
 
         if (b<0) return 1.0f/square;
-        else return square;
+        return square;
     }
 
     static int abs(int n){
