@@ -2,7 +2,7 @@ package Homework8;
 
 public class SquareMethod {
     public static void main(String[] args) {
-        float number = square(5,5);
+        float number = square(10,-10);
 
         if (number == -1) {
             System.out.println("Error code: "+number+", |a| or |b| > 10 must be in range(-10,10)");
@@ -17,7 +17,7 @@ public class SquareMethod {
         if (abs(a)>10 || abs(b)>10) return -1;
         if (a < 0) return -2;
 
-        int square = 1;
+        long square = 1;
         for (int i = abs(b); i > 0; i--) {
             square = a * square;
         }
