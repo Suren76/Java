@@ -19,8 +19,7 @@ public class ArmstrongNumber {
             sumOfNumbers += square(tempNumber%10,count);
         }
 
-        if (number == sumOfNumbers) return true;
-        return false;
+        return number == sumOfNumbers;
     }
 
     static int square(int a, int b) {
