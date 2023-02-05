@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class GetWordCountInString {
     public static void main(String[] args){
         System.out.println(wordCount("gvbdjbn ad vhav ad fdjn ad string","ad"));
-        System.out.println(stringCount("gvbdjbn ad vhav ad fdjn ad string"));
+        System.out.println(wordCount("gvbdjbn ad vhav ad fdjn ad string"));
     }
 
     static int wordCount(String text, String word){
@@ -17,10 +17,7 @@ public class GetWordCountInString {
         return count==0 ? -1: count;
     }
 
-    static int stringCount(String text){
-        if (text.length() == 0) return -2;
-        int count = 0;
-        for (String wordToCompare:text.split(" ")) if (wordToCompare.equals("string")) count++;
-        return count==0 ? -1: count;
+    static int wordCount(String text){
+        return wordCount(text, "string");
     }
 }
