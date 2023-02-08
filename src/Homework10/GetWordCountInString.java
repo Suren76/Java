@@ -1,7 +1,5 @@
 package Homework10;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Arrays;
 
 public class GetWordCountInString {
