@@ -24,10 +24,10 @@ class Sportsman {
     }
 
     int compareToObject (Sportsman odjToCompare) {
-        if (odjToCompare.getAverageOfScores() >= this.getAverageOfScores()) {
+        if (odjToCompare.getAverageOfScores() > this.getAverageOfScores()) {
             return -1;
         }
-        if (odjToCompare.getAverageOfScores() <= this.getAverageOfScores()) {
+        if (odjToCompare.getAverageOfScores() > this.getAverageOfScores()) {
             return 1;
         }
         return 0;
@@ -47,5 +47,6 @@ public class SportsmenList {
             System.out.println(sportBoy.getAverageOfScores());
         }
 
+        System.out.println(S1.compareToObject(S2));
     }
 }

@@ -12,7 +12,7 @@ class Building {
         this.with3rooms = with3rooms;
         if (type.equalsIgnoreCase("panel") || type.equalsIgnoreCase("monolithic")) {
             this.type = type;
-        } else {System.exit(0);}
+        } else {System.exit(1);}
     }
 
     int houseCount() {
