@@ -25,14 +25,18 @@ public class CommonDivisor {
     }
 
     static int min(int[] list){
-        int minNumber = list[0];
+        int minNumber = abs(list[0]);
 
         for (int n :list) {
-            if (n < minNumber){
-                minNumber = n;
+            if (abs(n) < minNumber){
+                minNumber = abs(n);
             }
         }
 
         return minNumber;
+    }
+
+    static int abs(int n) {
+        return n<0? n*-1: n;
     }
 }
