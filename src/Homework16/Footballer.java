@@ -17,7 +17,7 @@ class footballPlayer {
         add();
     }
 
-    void add() {
+    private void add() {
         footballPlayer[] tempClass = footballerList;
         footballerList = footballerList==null? new footballPlayer[1]: new footballPlayer[footballerList.length+1];
 
