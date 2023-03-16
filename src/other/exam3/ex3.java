@@ -20,7 +20,7 @@ class Ae3 {
 
     public static void f(int i) {
         y++;
-        g(i);
+//        g(i);
     }
     public void g(int j) {
         System.out.println(j);
