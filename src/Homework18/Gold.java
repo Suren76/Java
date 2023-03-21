@@ -1,6 +1,7 @@
 package Homework18;
 
 class Gold extends Standart {
+    private int lunchAccount = 100000;
 
     Gold(String cardholder) {
         super(cardholder);
@@ -8,6 +9,8 @@ class Gold extends Standart {
     }
 
     void lunch(int money) {
-        this.cash(money);
+        if (this.lunchAccount >= money && money > 0) {
+            this.lunchAccount -= money;
+        }
     }
 }
