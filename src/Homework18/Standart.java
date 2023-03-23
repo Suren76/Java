@@ -4,8 +4,7 @@ class Standart {
     private String cardholder;
     private int account = 0;
 
-    Standart(String cardholder) {
-        this.cardholder = cardholder;
+    public Standart(String cardholder, int cardNumber) {
     }
 
     void cash(int money) {
@@ -22,9 +21,5 @@ class Standart {
 
     int getAccount() {
         return this.account;
-    }
-
-    void buyOnline(int money) {
-        cash(money);
     }
 }

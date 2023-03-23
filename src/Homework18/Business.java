@@ -1,5 +1,7 @@
 package Homework18;
 
+import Homework17.Standart;
+
 class Business extends Standart {
     private boolean milion = false;
 

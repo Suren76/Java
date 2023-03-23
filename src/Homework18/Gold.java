@@ -1,6 +1,8 @@
 package Homework18;
 
-class Gold extends Standart {
+import Homework18.Standart;
+
+class Gold extends Homework19.Standart {
     private int lunchAccount = 100000;
 
     Gold(String cardholder) {
@@ -12,10 +14,5 @@ class Gold extends Standart {
         if (this.lunchAccount >= money && money > 0) {
             this.lunchAccount -= money;
         }
-    }
-
-    @Override
-    void buyOnline(int money){
-        cash(money-(money/10));
     }
 }
