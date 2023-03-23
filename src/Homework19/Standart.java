@@ -1,4 +1,4 @@
-package Homework18;
+package Homework19;
 
 class Standart {
     private String cardholder;
@@ -22,9 +22,5 @@ class Standart {
 
     int getAccount() {
         return this.account;
-    }
-
-    void buyOnline(int money) {
-        cash(money);
     }
 }

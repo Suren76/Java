@@ -1,4 +1,4 @@
-package Homework18;
+package Homework19;
 
 class Gold extends Standart {
     private int lunchAccount = 100000;
@@ -12,10 +12,5 @@ class Gold extends Standart {
         if (this.lunchAccount >= money && money > 0) {
             this.lunchAccount -= money;
         }
-    }
-
-    @Override
-    void buyOnline(int money){
-        cash(money-(money/10));
     }
 }
