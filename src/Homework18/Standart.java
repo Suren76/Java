@@ -4,7 +4,8 @@ class Standart {
     private String cardholder;
     private int account = 0;
 
-    public Standart(String cardholder, int cardNumber) {
+    public Standart(String cardholder) {
+        this.cardholder =cardholder;
     }
 
     void cash(int money) {

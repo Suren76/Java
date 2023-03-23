@@ -1,7 +1,5 @@
 package Homework18;
 
-import Homework17.Standart;
-
 public class cards {
     public static void main(String[] args) {
         Standart card1 = new Standart("Smbulik");
