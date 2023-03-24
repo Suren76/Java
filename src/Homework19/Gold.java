@@ -4,7 +4,7 @@ package Homework19;
 class Gold extends Standart {
     private int lunchAccount = 100000;
 
-    Gold(String cardholder, int cardNumber, int expirationYear) {
+    Gold(String cardholder, String cardNumber, int expirationYear) {
         super(cardholder, cardNumber,expirationYear);
     }
 
@@ -21,6 +21,6 @@ class Gold extends Standart {
 
     @Override
     public String toString() {
-        return this.getCardholder()+" "+this.getCardNumber()+" "+this.getExpirationYear()+" "+this.getClass().getName();
+        return this.getCardholder()+" "+this.getCardNumber()+" "+this.getExpirationYear()+" "+this.getClass().getSimpleName();
     }
 }

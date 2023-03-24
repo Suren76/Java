@@ -5,7 +5,7 @@ class Business extends Standart {
     private boolean milion = false;
     private int bonus = 0;
 
-    Business(String cardholder, int cardNumber, int expirationYear) {
+    Business(String cardholder, String cardNumber, int expirationYear) {
         super(cardholder, cardNumber,expirationYear);
     }
 
@@ -24,6 +24,6 @@ class Business extends Standart {
 
     @Override
     public String toString() {
-        return this.getCardholder()+" "+this.getCardNumber()+" "+this.getExpirationYear()+" "+this.getClass().getName();
+        return this.getCardholder()+" "+this.getCardNumber()+" "+this.getExpirationYear()+" "+this.getClass().getSimpleName();
     }
 }

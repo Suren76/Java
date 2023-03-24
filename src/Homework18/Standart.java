@@ -19,8 +19,4 @@ class Standart {
             this.account += money;
         }
     }
-
-    int getAccount() {
-        return this.account;
-    }
 }

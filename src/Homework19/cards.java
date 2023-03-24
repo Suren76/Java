@@ -1,13 +1,9 @@
 package Homework19;
 
-import Homework18.Standart;
-
 public class cards {
     public static void main(String[] args) {
-        Standart card1 = new Standart("Smbulik");
+        Standart card1 = new Gold("Smbulik","0123456789101112",2004);
 
-        card1.add(-10000);
-
-        System.out.println(card1.getAccount());
+        System.out.println(card1);
     }
 }
