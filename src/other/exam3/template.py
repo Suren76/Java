@@ -11,7 +11,7 @@ for file in [filename for filename in os.listdir() if ".java" in filename]:
 
     output = os.environ["output"]
 
-    to_html += f"<output>{str(output)}</output>"
+    to_html += "<output>{str(output)}</output>"
     print(to_html)
 
 

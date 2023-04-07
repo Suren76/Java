@@ -1,24 +1,24 @@
 package Homework19;
 
-class Standart {
+public class Standart {
     private int account = 0;
     private String cardholder;
     private String cardNumber;
     private int expirationYear;
 
-    Standart(String cardholder, String cardNumber, int expirationYear) {
+    public Standart(String cardholder, String cardNumber, int expirationYear) {
         this.cardholder = cardholder;
         this.cardNumber = cardNumber;
         this.expirationYear = expirationYear;
     }
 
-    void cash(int money) {
+    public void cash(int money) {
         if (this.account >= money && money > 0) {
             this.account -= money;
         }
     }
 
-    void add(int money) {
+    public void add(int money) {
         if (money > 0) {
             this.account += money;
         }
@@ -36,7 +36,7 @@ class Standart {
         return this.expirationYear;
     }
 
-    void buyOnline(int money) {
+    public void buyOnline(int money) {
         cash(money);
     }
 
