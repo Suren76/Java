@@ -15,7 +15,7 @@ class Gold extends Standart {
     }
 
     @Override
-    void buyOnline(int money){
+    public void buyOnline(int money){
         cash(money-(money/10));
     }
 

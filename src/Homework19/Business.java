@@ -17,7 +17,7 @@ class Business extends Standart {
     }
 
     @Override
-    void cash(int money) {
+    public void cash(int money) {
         bonus+=2;
         super.cash(money);
     }
