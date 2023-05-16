@@ -41,7 +41,7 @@ public class DynamicArray<E> implements ArrayInterface<E> {
         if (size > array.length) {
             E[] temp = array;
             array = (E[]) new Object[temp.length + 5];
-            System.arraycopy(temp, 0, array, 0, temp.length);
+            arraycopy(temp, 0, array, 0, temp.length);
         }
 
         array[size-1] = element;
@@ -56,10 +56,11 @@ public class DynamicArray<E> implements ArrayInterface<E> {
         if (size > array.length) {
             E[] temp = array;
             array = (E[]) new Object[temp.length + 5];
-            System.arraycopy(temp, 0, array, 0, temp.length);
+            arraycopy(temp, 0, array, 0, temp.length);
         }
 
-        System.arraycopy(array, index, array, index+1, (size-1)-index);
+        System.out.println(1);
+        arraycopy(array, index, array, index+1, (size-1)-index);//1
 
         array[index] = element;
     }
@@ -68,7 +69,7 @@ public class DynamicArray<E> implements ArrayInterface<E> {
     public void remove(int index){
         checkOutOfRange(index);
 
-        System.arraycopy(array, index+1, array, index, --size-index);
+        arraycopy(array, index+1, array, index, --size-index);
     }
 
     @Override
@@ -91,4 +92,12 @@ public class DynamicArray<E> implements ArrayInterface<E> {
             throw new IndexOutOfBoundsException("Index out of range: " + size + ", "+index+" > "+size+", diff: "+(index-size));
         }
     }
+
+    private void arraycopy(E[] src,  int  srcPos, E[] dest, int destPos, int length){
+        src = src.clone();
+
+        for (int i = 0; i < length; i++) {
+            dest[destPos+i] = src[srcPos+i];
+        }
+    };
 }
