@@ -19,7 +19,7 @@ public class SecondTask {
 
 
         System.out.println(fList);
-        fList.removeIf(n -> (n == f1));
+        fList.removeIf(n -> (n == fList.get(0)));
         System.out.println(fList);
 
 
