@@ -18,9 +18,19 @@ public class SecondTask {
         fList.add(new MyType());
 
 
+//        Solution 1
+        System.out.println();
+        MyList<MyType> mySol = new MyList<>(fList);
+        System.out.println(mySol);
+        mySol.removeU(0);
+        System.out.println(mySol);
+
+//        Solution 2
+        System.out.println();
         System.out.println(fList);
         fList.removeIf(n -> (n == fList.get(0)));
         System.out.println(fList);
+
 
 
     }

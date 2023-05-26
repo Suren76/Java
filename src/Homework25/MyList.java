@@ -9,7 +9,7 @@ class MyList<E> extends ArrayList<E> implements List<E> {
     private List<E> array;
 
     MyList(List<E> array) {
-        this.array = array;
+        this.array = new ArrayList<>(array);
     }
 
     private HashSet<E> getSet() {
@@ -32,35 +32,17 @@ class MyList<E> extends ArrayList<E> implements List<E> {
 
     public E removeU(int index) {
         E toRemove = array.get(index);
+        int indexOfObjCount = membersCount()[new ArrayList<>(getSet()).indexOf(toRemove)];
 
-        for (int i = 0; i < membersCount()[0]; i++) {
+        for (int i = 0; i < indexOfObjCount; i++) {
             array.remove(toRemove);
-            System.out.println(array);
-            System.out.println(i);
-            System.out.println(Arrays.toString(membersCount()));
         }
 
         return toRemove;
     }
 
-
-    public static void main(String[] args) {
-
-        MyType f1 = new MyType();
-        List<MyType> fList = new ArrayList<>();
-        fList.add(f1);
-        fList.add(f1);
-        fList.add(f1);
-        fList.add(f1);
-        fList.add(new MyType());
-        fList.add(new MyType());
-        fList.add(new MyType());
-
-        System.out.println(fList);
-        List<MyType> mySol = new MyList<>(fList);
-
-        System.out.println(mySol.remove(0));
-        System.out.println(Arrays.toString(mySol.toArray()));
-
+    @Override
+    public String toString() {
+        return array.toString();
     }
 }
