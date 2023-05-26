@@ -3,6 +3,7 @@ package Homework25;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 class ListNegative<E> extends ArrayList<E> implements List<E> {
@@ -13,13 +14,37 @@ class ListNegative<E> extends ArrayList<E> implements List<E> {
     }
 
     List<E> getNegative(){
-        if (list.get(0) instanceof Number ){
-            int length = 0;
-            for (; length < list.size() && ((int) list.get(length) > 0); length++) {
+        List<E> numbersList = new ArrayList<>();
 
+        for (int length = 0; length < list.size() ; length++) {
+            if (list.get(length) instanceof Number) {
+                numbersList.add(list.get(length));
+
+                if (!((int) list.get(length) > 0)) {
+                    return numbersList;
+                }
             }
 
-            return list.subList(0,length);
+            if (list.get(length) instanceof String stringToNumber) {
+                if (stringToNumber.toUpperCase().equals(stringToNumber.toLowerCase())) {
+                    numbersList.add((E) (Integer) Integer.parseInt(stringToNumber));
+
+                    if (!( Integer.parseInt(stringToNumber) > 0)) {
+                        return numbersList;
+                    }
+                }
+            }
+
+            if (list.get(length) instanceof Character charToNumber) {
+                if (Character.toUpperCase(charToNumber) == (Character.toLowerCase(charToNumber))) {
+                    numbersList.add((E) (Integer) Character.getNumericValue(charToNumber));
+
+                    if (!(Character.getNumericValue(charToNumber) > 0)) {
+                        return numbersList;
+                    }
+                }
+            }
+
         }
 
         return list;
@@ -42,10 +67,22 @@ public class ThirdTask {
         stringList.add("12");
         stringList.add("56");
         stringList.add("8");
-        stringList.add("-5");
+//        stringList.add("-5");
         stringList.add("12");
         stringList.add("56");
         stringList.add("h8");
+
+
+        List<Object> objectList = new ArrayList<>();
+        objectList.add("12");
+        objectList.add(56);
+        objectList.add("8");
+        objectList.add('5');
+        objectList.add("12");
+        objectList.add(56);
+        objectList.add("h8");
+        objectList.add(-5);
+        objectList.add(56);
 
 
         ListNegative<Integer> intToNegativeList = new ListNegative<>(intList);
@@ -53,6 +90,11 @@ public class ThirdTask {
 
         ListNegative<String> stringToNegativeList = new ListNegative<>(stringList);
         System.out.println(stringToNegativeList.getNegative());
+
+        ListNegative<Object> objectToNegativeList = new ListNegative<>(objectList);
+        System.out.println(objectToNegativeList.getNegative());
+
+        System.out.println();
 
     }
 }
