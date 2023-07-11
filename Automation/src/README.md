@@ -5,7 +5,7 @@
     <body>
         <ol>
             <li> <a class="nav-link " href="main/java/learning/homework1">homework1</a> and <a href="src/test/java/AuthTests.java">AuthTest</a> - homework of Harut</li>
-            <li> <a class="nav-link" href="main/java/learning/homework1">homework1</a> and <a href="src/test/java/AuthTests.java">AuthTest</a> - homework of Davit</li>
+            <li> <a class="nav-link" href="main/java/learning/homework2">homework2</a> and <a href="src/test/java/TestBrowser.java">TestBrowser</a> - homework of Davit</li>
         </ol>
     </body>
 </html>
