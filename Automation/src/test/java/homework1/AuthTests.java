@@ -1,3 +1,5 @@
+package homework1;
+
 import learning.homework1.Auth;
 import learning.homework1.User;
 import learning.homework1.UserExists;
