@@ -1,12 +1,12 @@
 package homework3;
 
 
-import BaseTest.BaseTestClass;
+import BaseTest.BaseTest;
 import org.openqa.selenium.WindowType;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class AppleFacebookTest extends BaseTestClass {
+public class AppleFacebookTest extends BaseTest {
 
     @BeforeMethod
     void openNewTab(){

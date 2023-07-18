@@ -1,12 +1,12 @@
 package homework3;
 
-import BaseTest.BaseTestClass;
+import BaseTest.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import static java.lang.Thread.sleep;
 
-public class MenuAmShopCartTest extends BaseTestClass {
+public class MenuAmShopCartTest extends BaseTest {
     String BASEURL = "https://menu.am/";
 
     @Test

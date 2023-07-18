@@ -1,6 +1,6 @@
 package homework3;
 
-import BaseTest.BaseTestClass;
+import BaseTest.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,7 +13,7 @@ import java.time.Duration;
 import static java.lang.Thread.sleep;
 
 
-public class SaucedemoTest extends BaseTestClass {
+public class SaucedemoTest extends BaseTest {
     static final String BASEURL = "https://www.saucedemo.com/";
 
     @DataProvider

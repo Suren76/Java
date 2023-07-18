@@ -1,9 +1,9 @@
 package homework3;
 
-import BaseTest.BaseTestClass;
+import BaseTest.BaseTest;
 import org.testng.annotations.Test;
 
-public class GoogleAmazonTest extends BaseTestClass {
+public class GoogleAmazonTest extends BaseTest {
     @Test
     void openGoogle(){
         driver.get("https://www.google.com");
