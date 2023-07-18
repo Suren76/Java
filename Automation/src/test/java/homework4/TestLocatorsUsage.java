@@ -25,6 +25,5 @@ public class TestLocatorsUsage extends LocatorUsageBaseClass{
         Assert.assertEquals(toCompare, currentElement);
         currentElement = driver.findElement(By.cssSelector("div.col-12.mt-4.col-md-6 a[download='sampleFile.jpeg']"));
         Assert.assertEquals(toCompare, currentElement);
-
     }
 }
