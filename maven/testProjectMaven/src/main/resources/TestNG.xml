@@ -1,8 +1,0 @@
-<suite name="Suite1" verbose="1" >
-    <test name="MathClassTests" >
-        <classes>
-            <class name="test1" />
-        </classes>
-    </test>
-
-</suite>
