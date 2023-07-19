@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestLocatorsUsage extends LocatorUsageBaseClass{
+public class TestLocatorsUsage extends LocatorUsageBaseTestClass {
     @Test
     void testLocators() {
         driver.get(BaseUrl+"upload-download");

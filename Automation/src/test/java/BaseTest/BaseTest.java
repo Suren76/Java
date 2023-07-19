@@ -12,34 +12,29 @@ import org.testng.annotations.BeforeSuite;
 import static java.lang.Thread.sleep;
 
 abstract class BaseTestClass {
-    public WebDriver driver = null;
+    public WebDriver driver;
 
     @BeforeSuite
-    void setup() {
-        System.out.println(1);
+    public void setup() {
         WebDriverManager.chromedriver().setup();
     }
 
     @BeforeClass
-    WebDriver configuringBeforeRun(){
-        System.out.println(2);
+    public void configuringBeforeRun(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
-        return driver;
     }
 
     @AfterClass
-    void afterTestEnds() throws InterruptedException {
-        System.out.println(3);
+    public void afterTestEnds() throws InterruptedException {
         sleep(2*1000);
         driver.close();
     }
 
     @AfterSuite
-    void TheEnd(){
-        System.out.println(4);
+    public void TheEnd(){
         driver.quit();
     }
 }

@@ -1,12 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Suite1" verbose="1" >
-    <run>
-        <include name=""/>
-    </run>
-    <packages>
-        <package name="BaseTest.BaseTestClass"/>
-    </packages>
     <test name="homework1" >
         <classes>
             <class name="homework1.AuthTests"/>
