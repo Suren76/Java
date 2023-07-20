@@ -17,16 +17,14 @@ public class TestTablesOfPracticeExpandtesting extends BaseTest {
     static final String BASEURL = "https://practice.expandtesting.com/tables";
 
     @Test
-    void testTablesByXpath() {
+    void testTablesByXpath() throws InterruptedException {
         driver.get(BASEURL);
 
         List<WebElement> emails = driver.findElements(By.xpath("//tbody//td[3]"));
         for (WebElement item : emails) {
             System.out.println(item.getText());
         }
-
-        driver.findElement(By.xpath("//td[text()='jsmith@gmail.com']/../td[@class='action']/a[2]")).findElement(By.xpath("//../a[2]")).click();
-
+        driver.findElement(By.xpath("//td[text()='jsmith@gmail.com']/../td[@class='action']/a[2]")).click();
     }
 
     @Test
@@ -37,9 +35,7 @@ public class TestTablesOfPracticeExpandtesting extends BaseTest {
         for (WebElement email: emails) {
             System.out.println(email.getText());
         }
-
-        driver.findElement(By.cssSelector("#table2 tbody tr:nth-child(1) td.action a:nth-child(2)")).findElement(By.xpath("//../a[2]")).click();
-        sleep(1000);
+        driver.findElement(By.cssSelector("#table2 tbody tr:nth-child(1) td.action a:nth-child(2)")).click();
     }
 
 }
