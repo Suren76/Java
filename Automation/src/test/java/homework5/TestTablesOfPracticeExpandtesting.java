@@ -14,18 +14,15 @@ public class TestTablesOfPracticeExpandtesting extends BaseTest {
     static final String BASEURL = "https://practice.expandtesting.com/tables";
 
     @Test
-    void testTablesByXpath(){
+    void testTablesByXpath() {
         driver.get(BASEURL);
 
-        WebElement table = driver.findElement(By.xpath("//div[@class='page-layout']//div[@class='row'][2]//table/tbody"));
-        List<WebElement> tablesList = table.findElements(By.tagName("tr"));
-
-        for (WebElement item: tablesList) {
+        List<WebElement> emails = driver.findElements(By.xpath("//tbody//td[3]"));
+        for (WebElement item : emails) {
             System.out.println(item.findElement(By.className("email")).getText());
         }
-
-        WebElement fieldOfTable = table.findElement(By.xpath("//td[text()=\"jsmith@gmail.com\"]/.."));
-        fieldOfTable.findElement(By.xpath("//a[@href=\"#delete\"]")).click();
+        //td[text()="jsmith@gmail.com"]/following-sibling::td[@class="action"]/a[2]
+        driver.findElement(By.xpath("//td[text()=\"jsmith@gmail.com\"]//..//td[@class=\"action\"]/a[2]")).click();
     }
 
     @Test
