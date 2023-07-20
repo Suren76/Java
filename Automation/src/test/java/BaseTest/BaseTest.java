@@ -16,7 +16,7 @@ abstract class BaseTestClass {
 
     @BeforeSuite
     public void setup() {
-        WebDriverManager.chromedriver().setup();
+//        WebDriverManager.chromedriver().setup();
     }
 
     @BeforeClass

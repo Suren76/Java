@@ -5,7 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
 import java.util.List;
+
+import static java.lang.Thread.sleep;
 
 public class TestTablesOfPracticeExpandtesting extends BaseTest {
     static final String BASEURL = "https://practice.expandtesting.com/tables";
@@ -26,27 +29,16 @@ public class TestTablesOfPracticeExpandtesting extends BaseTest {
     }
 
     @Test
-    void testTablesByCssSelector(){
+    void testTablesByCssSelector() throws InterruptedException {
         driver.get(BASEURL);
 
-        WebElement table = driver.findElement(By.cssSelector("table#table2 tbody"));
-        List<WebElement> tablesList = table.findElements(By.tagName("tr"));
-
-        for (WebElement item: tablesList) {
-            System.out.println(item.findElement(By.className("email")).getText());
+        List<WebElement> emails = driver.findElements(By.cssSelector("tbody tr :nth-child(3)"));
+        for (WebElement email: emails) {
+            System.out.println(email.getText());
         }
 
-        WebElement fieldOfTable = null;
-        for (WebElement item: tablesList) {
-            if (item.findElement(By.className("email")).getText().equals("jsmith@gmail.com")){
-                fieldOfTable = item;
-                fieldOfTable = fieldOfTable.findElement(By.cssSelector("td[class='action'] a:nth-child(2)"));
-            }
-        }
-
-        // առանց xpath exception ա տամ
-        assert fieldOfTable != null;
-        fieldOfTable.findElement(By.xpath("//../a[2]")).click();
-
+        driver.findElement(By.cssSelector("#table2 tbody tr:nth-child(1) td.action a:nth-child(2)")).findElement(By.xpath("//../a[2]")).click();
+        sleep(1000);
     }
+
 }
