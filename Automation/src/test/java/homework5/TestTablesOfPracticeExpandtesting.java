@@ -3,8 +3,11 @@ package homework5;
 import BaseTest.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,10 +22,11 @@ public class TestTablesOfPracticeExpandtesting extends BaseTest {
 
         List<WebElement> emails = driver.findElements(By.xpath("//tbody//td[3]"));
         for (WebElement item : emails) {
-            System.out.println(item.findElement(By.className("email")).getText());
+            System.out.println(item.getText());
         }
-        //td[text()="jsmith@gmail.com"]/following-sibling::td[@class="action"]/a[2]
-        driver.findElement(By.xpath("//td[text()=\"jsmith@gmail.com\"]//..//td[@class=\"action\"]/a[2]")).click();
+
+        driver.findElement(By.xpath("//td[text()='jsmith@gmail.com']/../td[@class='action']/a[2]")).findElement(By.xpath("//../a[2]")).click();
+
     }
 
     @Test
