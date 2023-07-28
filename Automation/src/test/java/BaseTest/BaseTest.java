@@ -23,6 +23,7 @@ abstract class BaseTestClass {
     public void configuringBeforeRun(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
+//        options.addArguments("start-maximized");
 
         driver = new ChromeDriver(options);
     }
