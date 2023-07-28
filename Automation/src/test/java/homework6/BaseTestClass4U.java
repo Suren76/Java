@@ -38,7 +38,6 @@ public class BaseTestClass4U extends BaseTest {
 
     protected boolean checkItemExistsInShopcart(WebElement elem) {
         driver.findElement(By.xpath("//div[@id=\"basketIcon\"]")).click();
-
         WebElement closeButton = new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id=\"basketCloseButton\"]")));
         List<WebElement> shopcartItems = driver.findElements(By.xpath("//div[@class=\"basket_content_item\"]"));
 
@@ -53,6 +52,20 @@ public class BaseTestClass4U extends BaseTest {
         return false;
     }
 
+    protected int getBasketItemsPrice() {
+        driver.findElement(By.xpath("//div[@id=\"basketIcon\"]")).click();
+        WebElement closeButton = new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id=\"basketCloseButton\"]")));
+
+        List<WebElement> shopcartItems = driver.findElements(By.xpath("//div[@class=\"basket_content_item\"]//p/span[1]"));
+        int totalPrice = 0;
+        for (WebElement item : shopcartItems) {
+            totalPrice += Integer.parseInt(String.join("", item.getText().split(",")));
+        }
+
+        closeButton.click();
+        return totalPrice;
+    }
+
     private Map<String, String> itemToValue(WebElement elem) {
         Map<String, String> itemProperties = new HashMap<>();
         itemProperties.put("name", elem.findElement(By.xpath(".//p/a")).getText());
@@ -63,8 +76,8 @@ public class BaseTestClass4U extends BaseTest {
 
     private Map<String, String> basketItemToValue(WebElement elem) {
         Map<String, String> itemProperties = new HashMap<>();
-        itemProperties.put("name", elem.findElement(By.xpath("//div[@class=\"basket_content_item\"][1]//h4")).getText());
-        itemProperties.put("price", elem.findElement(By.xpath("//div[@class=\"basket_content_item\"][1]//p/span[1]")).getText());
+        itemProperties.put("name", elem.findElement(By.xpath(".//h4")).getText());
+        itemProperties.put("price", elem.findElement(By.xpath(".//p/span[1]")).getText());
 
         return itemProperties;
     }
