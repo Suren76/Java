@@ -11,6 +11,7 @@
             <li><a href="test/java/homework4" class="nav-link">homework4</a> are part of homework4 </li>
             <li><a href="test/java/homework5" class="nav-link">homework5</a> are part of homework5 </li>
             <li><a href="test/java/homework6" class="nav-link">homework6</a> are part of homework6 </li>
+            <li><a href="test/java/homework7" class="nav-link">homework7</a> are part of homework7 </li>
         </ol>
     </body>
 </html>
