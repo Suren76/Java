@@ -12,12 +12,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BaseTestClass4U extends BaseTest {
+class BaseTestClass4U extends BaseTest {
     static final String BASEURL = "https://4u.am/en/";
     private WebElement header;
+    private By basketIcon = By.xpath("//div[@id=\"basketIcon\"]");
 
     protected int getShopcartItemsCount() {
-        driver.findElement(By.xpath("//div[@id=\"basketIcon\"]")).click();
+        driver.findElement(basketIcon).click();
         WebElement closeButton = new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id=\"basketCloseButton\"]")));
         int count = driver.findElements(By.xpath("//div[@class='basket_content_item']")).size();
         closeButton.click();
@@ -30,14 +31,12 @@ public class BaseTestClass4U extends BaseTest {
     }
 
     protected void click(WebElement elem) {
-        if (header == null) {
-            header = driver.findElement(By.xpath("//header"));
-        }
+        header = driver.findElement(By.xpath("//header"));
         click(elem, header);
     }
 
     protected boolean checkItemExistsInShopcart(WebElement elem) {
-        driver.findElement(By.xpath("//div[@id=\"basketIcon\"]")).click();
+        driver.findElement(basketIcon).click();
         WebElement closeButton = new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id=\"basketCloseButton\"]")));
         List<WebElement> shopcartItems = driver.findElements(By.xpath("//div[@class=\"basket_content_item\"]"));
 
@@ -53,7 +52,7 @@ public class BaseTestClass4U extends BaseTest {
     }
 
     protected int getBasketItemsPrice() {
-        driver.findElement(By.xpath("//div[@id=\"basketIcon\"]")).click();
+        driver.findElement(basketIcon).click();
         WebElement closeButton = new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id=\"basketCloseButton\"]")));
 
         List<WebElement> shopcartItems = driver.findElements(By.xpath("//div[@class=\"basket_content_item\"]//p/span[1]"));
