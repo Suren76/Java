@@ -10,17 +10,15 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-import static java.lang.Thread.sleep;
-
 public class TestDroppable extends BaseTestDemoqa {
     @Test
     void testDragAndDrop() throws InterruptedException {
-        driver.get(BASEURL+"/droppable");
+        driver.get(BASEURL + "/droppable");
 
         WebElement draggable = driver.findElement(By.id("draggable"));
         WebElement droppable = driver.findElement(By.id("droppable"));
 
-        new Actions(driver).scrollByAmount(0,draggable.getRect().y/2).dragAndDrop(draggable, droppable).build().perform();
+        new Actions(driver).scrollByAmount(0, draggable.getRect().y / 2).dragAndDrop(draggable, droppable).build().perform();
 
         Assert.assertTrue(new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.textToBe(By.xpath("//div[@id='droppable']/p"), "Dropped!")));
     }

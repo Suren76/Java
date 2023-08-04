@@ -8,21 +8,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.beans.SimpleBeanInfo;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.Date;
 
 public class TestExpandtesting extends BaseTestExpandtesting {
 
     @Test
-    void testSelectedData(){
-        driver.get(BASEURL+"/webpark");
+    void testSelectedData() {
+        driver.get(BASEURL + "/webpark");
 
-        Select dropDownMenu =  new Select(driver.findElement(By.id("parkingLot")));
+        Select dropDownMenu = new Select(driver.findElement(By.id("parkingLot")));
         dropDownMenu.selectByVisibleText("Short-Term Parking");
 
 
