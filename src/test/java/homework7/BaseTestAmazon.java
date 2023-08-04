@@ -6,6 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -22,7 +23,7 @@ class BaseTestAmazon extends BaseTest {
         }
 
         WebElement dropdownMenu = driver.findElement(By.xpath("//select[@id='searchDropdownBox']"));
-        dropdownMenu.click();
-        dropdownMenu.findElement(By.xpath("./option[text()='" + fieldName + "']")).click();
+        Select select = new Select(dropdownMenu);
+        select.selectByVisibleText(fieldName);
     }
 }
