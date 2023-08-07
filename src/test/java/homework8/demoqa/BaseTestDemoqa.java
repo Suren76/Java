@@ -3,5 +3,5 @@ package homework8.demoqa;
 import BaseTest.BaseTest;
 
 public class BaseTestDemoqa extends BaseTest {
-    final static String BASEURL = "https://demoqa.com";
+    final static String BASE_URL = "https://demoqa.com";
 }

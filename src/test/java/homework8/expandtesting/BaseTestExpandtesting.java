@@ -2,106 +2,50 @@ package homework8.expandtesting;
 
 import BaseTest.BaseTest;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class BaseTestExpandtesting extends BaseTest {
-    final static String BASEURL = "https://practice.expandtesting.com";
+    final static String BASE_URL = "https://practice.expandtesting.com";
 
     protected int getPrice(String entryDate, String entryTime, String exitDate, String exitTime) {
-        return (int) ((getDateDelta(entryDate, exitDate) * 24) + (getTimeDelta(entryTime, exitTime) * 2));
+        return getPrice(entryDate, entryTime, exitDate, exitTime, "yyyy-MM-dd HH:mm");
     }
 
-    protected int getDateDelta(DateSplit date1, DateSplit date2) {
-        int days = 0;
+    protected int getPrice(String entryDate, String entryTime, String exitDate, String exitTime, String format) {
+        return getPrice(entryDate + " " + entryTime, exitDate + " " + exitTime, format);
+    }
 
-        if (!(date1.day == date2.day)) {
-            days += date2.day - date1.day;
+    protected int getPrice(String entryDate, String exitDate, String format) {
+        double delta = getTimeDelta(entryDate, exitDate, format);
+        System.out.println(delta);
+        int days = (int) (delta / 60 / 24);
+        int halfHours = (int) ((delta - days * 24 * 60) / 30);
+        return days * 24 + halfHours;
+    }
+
+    private double getTimeDelta(String time1, String time2, String format) {
+        DateFormat dateFormat = new SimpleDateFormat(format);
+        Date date1, date2;
+        try {
+            date1 = dateFormat.parse(time1);
+            date2 = dateFormat.parse(time2);
+            return getTimeDelta(date1, date2);
+        } catch (ParseException e) {
+            throw new InvalidInput(e.getMessage());
         }
-        if (!(date1.month == date2.month)) {
-            if ((date2.month - date1.month) > 1) {
-                for (int i = 0; i < (date2.month - date1.month); i++) {
-                    days += getMonthDaysCount(date2.month - i);
-                }
-            }
-        }
-        if (!(date1.year == date2.year)) {
-            days += (date2.year - date1.year) * 365;
-        }
-
-        return days;
     }
 
-    protected int getDateDelta(String date1, String date2) {
-        DateSplit s1 = new DateSplit(date1, "yyyy:MM:dd");
-        DateSplit s2 = new DateSplit(date2, "yyyy:MM:dd");
-        return getDateDelta(s1, s2);
+    private int getTimeDelta(Date time1, Date time2) {
+        double delta = time2.getTime() - time1.getTime();
+        return (int) delta / 1000 / 60;
     }
-
-    protected double getTimeDelta(String time1, String time2) {
-        return Integer.parseInt(time2.split(":")[0]) - Integer.parseInt(time1.split(":")[0]) + (Integer.parseInt(time2.split(":")[1]) - Integer.parseInt(time1.split(":")[1]) >= 30 ? 0.5 : 0);
-    }
-
-    private int getMonthDaysCount(int monthNumber) {
-        switch (monthNumber) {
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 10:
-            case 12:
-                return 31;
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                return 30;
-            case 2:
-                return 28;
-        }
-        return 50000;
-    }
-
 }
 
-class DateSplit {
-    int day;
-    int month;
-    int year;
-
-    DateSplit(String date) {
-        this(date, "yyyy:MM:dd");
-    }
-
-    DateSplit(String date, String format) {
-        ArrayList<String> s = new ArrayList<>(List.of(format.split(":")));
-        String[] dateSplited = date.split("-");
-
-        this.day = Integer.parseInt(dateSplited[s.indexOf("dd")]);
-        this.month = Integer.parseInt(dateSplited[s.indexOf("MM")]);
-        this.year = Integer.parseInt(dateSplited[s.indexOf("yyyy")]);
-
-    }
-
-    int getDay() {
-        return day;
-    }
-
-    int getMonth() {
-        return month;
-    }
-
-    int getYear() {
-        return year;
-    }
-
-    @Override
-    public String toString() {
-        return "DateSplit{" +
-                "day=" + day +
-                ", month=" + month +
-                ", year=" + year +
-                '}';
+class InvalidInput extends RuntimeException {
+    public InvalidInput(String message) {
+        super(message);
     }
 }

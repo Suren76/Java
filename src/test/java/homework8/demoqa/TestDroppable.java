@@ -13,7 +13,7 @@ import java.time.Duration;
 public class TestDroppable extends BaseTestDemoqa {
     @Test
     void testDragAndDrop() throws InterruptedException {
-        driver.get(BASEURL + "/droppable");
+        driver.get(BASE_URL + "/droppable");
 
         WebElement draggable = driver.findElement(By.id("draggable"));
         WebElement droppable = driver.findElement(By.id("droppable"));

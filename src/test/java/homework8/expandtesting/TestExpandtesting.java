@@ -14,7 +14,7 @@ public class TestExpandtesting extends BaseTestExpandtesting {
 
     @Test
     void testSelectedData() {
-        driver.get(BASEURL + "/webpark");
+        driver.get(BASE_URL + "/webpark");
 
         Select dropDownMenu = new Select(driver.findElement(By.id("parkingLot")));
         dropDownMenu.selectByVisibleText("Short-Term Parking");
